@@ -1,0 +1,226 @@
+% Package for Xidian University Beamer. Beamer theme based on Berkeley.
+% Author: Stick Cui.
+% E-mail: Stick_Cui@163.com
+% Time: 2015/4/18
+% Attention: Only can be used with XeLaTex.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{XDstyle}[2015/05/05 v1.0 XDstyle]
+\RequirePackage{ifxetex}
+\RequireXeTeX
+
+\newif\if@English \@Englishfalse
+
+\newif\if@XDblue \@XDbluefalse
+
+\newif\if@CircleLogo \@CircleLogofalse
+
+\DeclareOption{English}{\@Englishtrue}
+\DeclareOption{XDblue}{\@XDbluetrue}
+\DeclareOption{CircleLogo}{\@CircleLogotrue}
+
+\ProcessOptions\relax
+
+\usetheme{Berkeley}
+\RequirePackage{graphicx}       % include graphics
+\RequirePackage{ifthen}         % logic options
+
+%-------定义颜色--------%
+\RequirePackage{colortbl,xcolor}
+
+\definecolor{darkRed}{rgb}{0.7,0.2,0.2}
+\definecolor{darkBlue}{rgb}{0,0.25,0.51}
+
+\if@XDblue
+\definecolor{titleColor}{rgb}{0,0.25,0.51}
+%设置幻灯片主题颜色
+\setbeamercolor{sidebar}{bg=darkBlue}%white 
+\setbeamercolor{structure}{fg=darkBlue}%white
+\setbeamercolor{frametitle}{fg=white,bg=darkBlue}%
+\setbeamercolor{normal text}{bg=white}%white
+
+%----About Block-----%
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg}
+
+%----About Palette-----%
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=white}
+
+\else
+
+\definecolor{titleColor}{rgb}{0.7,0.2,0.2}
+%设置幻灯片主题颜色
+\setbeamercolor{sidebar}{bg=darkRed}%white 
+\setbeamercolor{structure}{fg=darkRed}%white
+\setbeamercolor{frametitle}{fg=white,bg=darkRed}%
+\setbeamercolor{normal text}{bg=white}%white
+
+%----About Block-----%
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg}
+
+%----About Palette-----%
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=white}
+\fi
+
+%-----字体支持-----%
+\RequirePackage[CJKnumber,SlantFont,BoldFont,CJKchecksingle]{xeCJK}%支持中文
+	\setCJKmainfont{SimSun}
+%	\setCJKfamilyfont{zhkai}{Adobe Kaiti Std}
+%-----设置字体------%
+\setCJKfamilyfont{song}{SimSun}                             %宋体 song  
+\newcommand{\song}{\CJKfamily{song}}
+\setCJKfamilyfont{zhkai}{Adobe Kaiti Std}                   %楷体  
+\newcommand{\kai}{\CJKfamily{kai}}
+\setCJKfamilyfont{hei}{SimHei}                                    %黑体  hei  
+\newcommand{\hei}{\CJKfamily{hei}}
+
+%%%===设置字体大小===  
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}     %初号  
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} %小初号  
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}      %一号  
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}      %二号  
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  %小二号  
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}  %三号  
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}%     四号  
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  %小四号  
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    %五号  
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   %小五号  
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  %六号  
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    %七
+
+
+%------图标------%
+\RequirePackage{pgf}
+
+\if@XDblue
+	\if@CircleLogo
+
+		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo_XDblue}}}}		
+		
+	\else
+
+		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/STD_DIY_XDlogo_XDblue}}}}
+		
+	\fi
+	
+	\pgfdeclareimage[height=2cm]{titlepagelogo}{XDgraphics/STD_XDlogo_XDblue} % placed on the title page
+	\titlegraphic{% is placed on the bottom of the title page
+  	\pgfuseimage{titlepagelogo}}
+\else
+
+\if@CircleLogo
+
+		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo}}}}		
+		
+	\else
+
+		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/STD_DIY_XDlogo}}}}
+		
+	\fi
+
+\pgfdeclareimage[height=2cm]{titlepagelogo}{XDgraphics/STD_XDlogo} % placed on the title page
+\titlegraphic{% is placed on the bottom of the title page
+  \pgfuseimage{titlepagelogo}
+}
+
+\fi
+%--------数学公式-------%
+\RequirePackage{amsthm,amsfonts}
+ 
+\RequirePackage{longtable,multirow,hhline,tabularx,array,makecell,booktabs}       %@@表格相关
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+\setbeamertemplate{caption}[numbered]%为了显示编号
+
+\if@English
+
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+
+\else
+ % Theorem style 
+\newtheorem{Th}{定理}[section]
+\newtheorem{Def}{定义}[section]
+\newtheorem{Lem}{引理}[section]
+\newtheorem{Cor}{推论}[section]
+\newtheorem{Prop}{性质}[section]
+\newtheorem{Eg}{例}[section]
+\newtheorem{Rem}{注}[section]
+\renewcommand\proofname{证明}
+
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand\refname{参考文献}
+\renewcommand{\contentsname}{目\quad 录}
+\renewcommand{\listfigurename}{插图目录}
+\renewcommand{\listtablename}{表格目录}
+\renewcommand{\indexname}{索\quad 引}
+
+\fi
+
+%-----关于参考文献------%
+%使得参考文献显示正规编号，而非beamer默认的图片
+\beamertemplatetextbibitems
+%将尚未出现（即将出现）的内容设置为半透明化效果
+\setbeamercovered{transparent}
+
+%自定义首位页面
+\RequirePackage{tikz}
+\usetikzlibrary{external}
+\RequirePackage{calc}
+\newlength{\plainpagewidth}
+ 
+  %title page
+  \setbeamertemplate{title page}{%
+      \setlength{\plainpagewidth}{\textwidth+1.6cm}%\beamer@leftsidebar
+      \vspace*{1em}
+      \hskip-1.6cm%\beamer@leftsidebar
+    \begin{minipage}[c][\textheight][c]{\plainpagewidth}
+      \vfill
+      \centering
+      {\usebeamerfont{title}\color{titleColor}\inserttitle}
+
+      {\usebeamerfont{subtitle}\color{titleColor}\insertsubtitle}\vspace*{\baselineskip}
+
+      \begin{beamercolorbox}[wd=\plainpagewidth,center,sep=\baselineskip]{frametitle}%
+        {\usebeamerfont{author}\insertauthor}\vspace*{\baselineskip}
+        
+        {\usebeamerfont{institute}\insertinstitute}\vspace*{\baselineskip}
+        
+        {\usebeamerfont{date}\insertdate}\vspace*{\baselineskip}
+      \end{beamercolorbox}\vspace*{\baselineskip}
+      
+     {\inserttitlegraphic}\vspace*{\baselineskip}
+    \end{minipage}
+  }
+ 
+  %final page
+  \defbeamertemplate{final page}{text}[1]{%
+      \setlength{\plainpagewidth}{\textwidth+1.6cm}%\beamer@leftsidebar
+      \vspace*{1em}
+      \hskip-1.6cm%\beamer@leftsidebar
+    \begin{minipage}[c][\textheight][c]{\plainpagewidth}
+      \centering
+      \vfill
+      \begin{beamercolorbox}[wd=\textwidth,center,sep=2\baselineskip]{frametitle}
+        #1
+      \end{beamercolorbox}
+      \vfill
+      {\inserttitlegraphic}\vspace*{\baselineskip}
+    \end{minipage}
+  }
+  \newcommand{\finalpage}[1]{%
+    \setbeamertemplate{final page}[text]{#1}
+    \usebeamertemplate{final page}
+  }
+\newcommand{\mybg}{%
+    \setbeamertemplate{background}{
+     % \includegraphics[width=\paperwidth,height=\paperheight]{image/aau_waves}
+      \tikzexternaldisable
+      \tikz[overlay] \fill[fill opacity=0.75,fill=white] (0,0) rectangle (-\paperwidth,\paperheight);
+      \tikzexternalenable
+    }
+}
+
+\endinput

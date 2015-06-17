@@ -1,0 +1,72 @@
+%!Tex engine = XeLaTeX
+\documentclass[10pt]{beamer}
+%,aspectratio=169 %画面比例16:9
+\usepackage[English]{XDstyle}
+%\usepackage[English,CircleLogo,XDblue]{XDstyle}
+
+
+\title{Title}
+\subtitle{Subtitle}
+\institute{School of Mathematics and Statistics,~Xidian University\\Email:~$\href{mailto:Stick_Cui@163.com}{{Stick\_Cui@163.com}}$}
+\author{Stick Cui}
+\date{\today}
+	
+\begin{document}
+{\mybg \frame[plain,noframenumbering]{\titlepage}}
+%\part{第一部分}
+\section{Section One}
+\begin{frame}{Usual Test}
+There is a book on the desk.
+\end{frame}
+
+\section{Theorem Test}
+\frame{\frametitle{Theorem Environment}
+\begin{theorem}
+This is a theorem
+\end{theorem}
+
+\begin{lemma}
+This is a lemma.
+\end{lemma}
+
+\begin{definition}
+This is a definition.
+\end{definition}
+}
+
+\section{Reference}
+\frame{
+\frametitle{Reference}
+Journal\cite{RefJ},~Journal\cite{RefB}.
+\begin{thebibliography}{}
+\bibitem{RefJ}
+	Fu, JL.,\& Chen, QX. (2005). Study on topic partition based on sequential paragraphic similarity. \emph{Computer Applications}. 25(9), 2022-2024.
+
+\bibitem{RefB}
+	Qiao, HG. Based on The Improved Method of Literature Evaluation Research of PageRank Algorithm[DB/OL]. http://www.docin.com/p-779713218.html?qq-pf-to=pcqq.group. 2015/1/24.
+\end{thebibliography}
+}
+
+\section{Figure Test}
+\frame{\frametitle{Figure Test}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{./Image/figure1}
+\caption{This is just a figure for testing.}\label{Fig.figure1}
+\end{figure}
+}
+
+\frame{
+\frametitle{Equation}
+\[\sigma = \sin{\theta}\]
+\begin{equation}
+\rho = \sum_{i=0}^n{a_i}
+\end{equation}
+}
+
+{\mybg
+\begin{frame}[plain,noframenumbering]
+ \finalpage{\yihao Thank You!}
+\end{frame}}
+
+\end{document}
