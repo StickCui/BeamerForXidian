@@ -49,6 +49,7 @@ Mainly package for Xidian University‘s Beamer. Beamer theme based on Berkeley.
 		Eg 例
 		Rem 注
 		proof 证明
+
 ###4、字号
 
 	\chuhao %初号     
@@ -63,11 +64,13 @@ Mainly package for Xidian University‘s Beamer. Beamer theme based on Berkeley.
 	\xiaowuhao  %小五号  
 	\liuhao %六号 
 	\qihao  %七号
+
 ###5、表格使用参数
 
 	L{自定义宽度}  %左对齐显示
 	C{自定义宽度}  %居中显示
 	R{自定义宽度}  %右对齐显示
+
 ###6、写在最后
 
 具体使用样例，可以参考example.tex（英文风格见example_en.tex）文件；
