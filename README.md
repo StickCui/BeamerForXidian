@@ -10,7 +10,7 @@ Mainly package for Xidian University‘s Beamer. Beamer theme based on Berkeley.
 
 ## 写在前面：
 
-宏包CUMCMpackage为XeLaTeX环境下的宏包；使用时，请务必使用XeLaTex编译；否则会报错，导致无法使用！！！
+宏包**XDstyle.sty**为XeLaTeX下书写的宏包；使用时，请务必使用XeLaTex编译；否则会报错，导致无法使用！！！
 
 ## 使用说明：
 
