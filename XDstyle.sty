@@ -4,7 +4,7 @@
 % Time: 2015/4/18
 % Attention: Only can be used with XeLaTex.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{XDstyle}[2015/05/05 v1.0 XDstyle]
+\ProvidesPackage{XDstyle}[2015/11/14 v1.1 XDstyle]
 \RequirePackage{ifxetex}
 \RequireXeTeX
 
@@ -93,11 +93,11 @@
 \if@XDblue
 	\if@CircleLogo
 
-		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo_XDblue}}}}		
+		\logo{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo_XDblue}}		
 		
 	\else
 
-		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/STD_DIY_XDlogo_XDblue}}}}
+		\logo{\includegraphics[height=1.61cm]{XDgraphics/STD_DIY_XDlogo_XDblue}}
 		
 	\fi
 	
@@ -108,11 +108,11 @@
 
 \if@CircleLogo
 
-		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo}}}}		
+%		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo}}}}
+\logo{\includegraphics[height=1.61cm]{XDgraphics/DIY_XDlogo}}	
 		
 	\else
-
-		\logo{\pgfputat{\pgfxy(-1.75,0.94)}{\pgfbox[center,base]{\includegraphics[height=1.61cm]{XDgraphics/STD_DIY_XDlogo}}}}
+\logo{\includegraphics[height=1.61cm]{XDgraphics/STD_DIY_XDlogo}}
 		
 	\fi
 
